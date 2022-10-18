@@ -1,7 +1,9 @@
 import axios from 'axios';
 import jwtDecode from 'jwt-decode'
+import {useDispatch} from 'react-redux'
 
-const BASE_URL = "https://docreview-api.onrender.com/users"
+const dispatch = useDispatch()
+const BASE_URL = "http://localhost:5000/users"
 
 const TOKEN = localStorage.getItem('jwtToken')
 
