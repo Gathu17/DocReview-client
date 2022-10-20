@@ -6,12 +6,11 @@ import {Link} from 'react-router-dom'
 import './home.css'
 import Document from '../../Components/document'
 import { getUserDoc,getDocs } from '../../Api/docApi'
-import AddDocButton from '../../Components/addDocButton'
 import {Stack} from '@mui/material'
 import {useSelector} from 'react-redux'
 import ReviewDoc from '../../Components/reviewDoc'
 import CommentBar from '../../Components/commentsBar'
-import {loadingDocs, loadedDocs,errorDocs} from '../../Redux/docRedux'
+import {loadingDocs, loadedDocs} from '../../Redux/docRedux'
 import {useDispatch} from 'react-redux'
 
 
@@ -22,7 +21,7 @@ const addIcon = <FontAwesomeIcon icon={faPlus} size='3x'/>
 const user =  useSelector((state)=> state.user.user)
 console.log(user)
 const dispatch = useDispatch()
-const { isLoading, isError, data, error ,isFetched,isFetching} = useQuery(['doc'],getUserDoc,{
+const { isLoading, isError, data, error ,isFetched} = useQuery(['doc'],getUserDoc,{
   enabled: user.role === 'user',
   retry: 3
 });

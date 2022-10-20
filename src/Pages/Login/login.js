@@ -6,7 +6,6 @@ import './login.css'
 import {useDispatch} from 'react-redux'
 import {login} from '../../Redux/userRedux'
 import {useNavigate} from 'react-router'
-import {useSelector} from 'react-redux'
 import {Link} from 'react-router-dom'
 const Login = () => {
   
@@ -16,6 +15,7 @@ const Login = () => {
           password: ''
         }
       });
+      
       const dispatch = useDispatch()
       const navigate = useNavigate() 
       const mutation = useMutation('login',loginUser,{
@@ -56,6 +56,7 @@ const Login = () => {
         
           <input type="submit" />
         </form>
+        {errors ? errors.map((error)=> <p>{error}</p>): ""}
         <p style={{ margin:"auto"}}>Create an account? <Link to="/register">Register</Link> here.</p>
     </div>
   )
