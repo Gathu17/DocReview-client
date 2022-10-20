@@ -15,7 +15,7 @@ const navItems = ['Home', 'About', 'Contact'];
 
 export default function NavBar() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const name =  useSelector((state)=> state.user.user?.user?.username)
+  const name =  useSelector((state)=> state.user.user?.username)
   
   const dispatch = useDispatch()
   const navigate = useNavigate()
