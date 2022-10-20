@@ -9,7 +9,7 @@ import {useNavigate} from 'react-router'
 import {Link} from 'react-router-dom'
 const Login = () => {
   
-    const { register, handleSubmit, formState: {errors} } = useForm({
+    const { register, handleSubmit} = useForm({
         defaultValues: {
           email: '',
           password: ''
@@ -56,7 +56,7 @@ const Login = () => {
         
           <input type="submit" />
         </form>
-        {errors ? errors.map((error)=> <p>{error}</p>): ""}
+        {/* {errors ? errors.map((error)=> <p>{error}</p>): ""} */}
         <p style={{ margin:"auto"}}>Create an account? <Link to="/register">Register</Link> here.</p>
     </div>
   )
