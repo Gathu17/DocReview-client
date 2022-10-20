@@ -19,7 +19,7 @@ const Home = () => {
 const docImg = <FontAwesomeIcon icon={faFolderOpen} size='3x'/>
 const addIcon = <FontAwesomeIcon icon={faPlus} size='3x'/>
 
-const user =  useSelector((state)=> state.user.user.user)
+const user =  useSelector((state)=> state.user.user)
 console.log(user)
 const dispatch = useDispatch()
 const { isLoading, isError, data, error ,isFetched,isFetching} = useQuery(['doc'],getUserDoc,{
