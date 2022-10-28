@@ -6,9 +6,14 @@ const BASE_URL = "https://docreview-api.onrender.com";
 const TOKEN = localStorage.getItem('jwtToken')
 console.log(TOKEN)
 
+if(TOKEN === null){
+    window.location.replace('/login')
+    console.log('login')
+}
+
 if(localStorage.getItem('jwtToken')){
     const decodedToken = jwtDecode(localStorage.getItem('jwtToken'))
-    if(decodedToken.exp * 1000 < Date.now() || decodedToken === null){
+    if(decodedToken.exp * 1000 < Date.now()){
         localStorage.removeItem('jwtToken')
         window.location.replace('/login')
         console.log('login')
