@@ -8,7 +8,7 @@ console.log(TOKEN)
 
 if(localStorage.getItem('jwtToken')){
     const decodedToken = jwtDecode(localStorage.getItem('jwtToken'))
-    if(decodedToken.exp * 1000 < Date.now()){
+    if(decodedToken.exp * 1000 < Date.now() || decodedToken === null){
         localStorage.removeItem('jwtToken')
         window.location.replace('/login')
         console.log('login')
