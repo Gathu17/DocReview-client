@@ -12,14 +12,19 @@ import ReviewDoc from '../../Components/reviewDoc'
 import CommentBar from '../../Components/commentsBar'
 import {loadingDocs, loadedDocs} from '../../Redux/docRedux'
 import {useDispatch} from 'react-redux'
-
+import {useNavigate} from 'react-router'
 
 const Home = () => {
 const docImg = <FontAwesomeIcon icon={faFolderOpen} size='3x'/>
 const addIcon = <FontAwesomeIcon icon={faPlus} size='3x'/>
+const navigate = useNavigate();
 
 const user =  useSelector((state)=> state.user.user)
 console.log(user)
+const token = useSelector((state)=> state.user.token)
+if(!token){
+  navigate('/login',{replace: true})
+}
 const dispatch = useDispatch()
 const { isLoading, isError, data, error ,isFetched} = useQuery(['doc'],getUserDoc,{
   enabled: user.role === 'user',
