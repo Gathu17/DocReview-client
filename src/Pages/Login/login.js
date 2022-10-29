@@ -54,9 +54,10 @@ const Login = () => {
            type="password"
            />
         
-          <input type="submit" />
+        {!mutation.isLoading ?<input type="submit" /> : <h2 style={{textAlign: "center"}}>Logging in ...</h2>}  
+        
         </form>
-        {/* {errors ? errors.map((error)=> <p>{error}</p>): ""} */}
+       
         <p style={{ margin:"auto"}}>Create an account? <Link to="/register">Register</Link> here.</p>
     </div>
   )
